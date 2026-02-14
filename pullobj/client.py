@@ -1,6 +1,7 @@
 from .element import Element
 from .utils import load_json, save_json
 from .logger import log
+from os import walk, listdir, rmdir
 from pathlib import Path
 
 
@@ -46,6 +47,12 @@ class Client:
             if key not in elements_dict:
                 element.delete()
                 self.objectsinfo.pop(key)
+
+        # delete empty folders
+        walk_list = list(walk(self.root))
+        for top, dirs, files in walk_list[::-1]:
+            if len(listdir(top)) == 0:
+                rmdir(top)
 
         # export elements that are in the new dict
         for key, value in elements_dict.items():
