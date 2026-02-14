@@ -11,7 +11,7 @@ class Element:
 
     def __init__(self, key: str, path: str, last_update_date: datetime, **kwargs):
         self.key = key
-        self.path = path
+        self.path = path if not path.startswith('/') else path[1:]
         self.last_update_date = last_update_date
         self.kwargs = kwargs
 
