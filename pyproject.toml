@@ -7,7 +7,7 @@ build-backend = "hatchling.build"
 [project]
 
 name = "pullobj"
-version = "0.1.0"
+version = "0.1.1"
 authors = [{ name = "cvisinoni" }]
 description = "A Python library for synchronizing remote objects to local files"
 readme = { file = "README.md", content-type = "text/markdown" }
